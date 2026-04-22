@@ -1,28 +1,35 @@
-from tarefas import adicionar_tarefa,lista_tarefas,concluir_tarefa
+from tarefas import adicionar_tarefa, listar_tarefas, concluir_tarefa, lista_tarefas
 
+while True:
+    print("\n" + "="*25)
+    print("1 - Adicionar Tarefa")
+    print("2 - Listar Tarefas")
+    print("3 - Concluir Tarefa")
+    print("0 - Sair")
+    print("="*25)
 
-while true:
-    print("_________________________")
-    print('__ 1 - Adicionar_________')
-    print('__ 2 - Listar____________')
-    print('__ 3 - Concluir Tarefa___')
-    print('__ 0 - Sair______________')
-    print("_________________________")
-
-    opcao = input("escolha")
+    opcao = input("Escolha uma opção: ")
 
     if opcao == '1':
-        desc = input("Digite uma tarefa: ")
+        desc = input("Descrição da tarefa: ")
         adicionar_tarefa(desc)
-    
+   
     elif opcao == '2':
+        print("\n--- SUAS TAREFAS ---")
         listar_tarefas()
 
+    elif opcao == '3':
+        listar_tarefas()
+        try:
+            i = int(input("Número da tarefa a concluir: "))
+            concluir_tarefa(i)
+           
+        except ValueError:
+            print("Por favor, digite um número.")
 
     elif opcao == '0':
+        print("Saindo...")
         break
-
-    elif opcao == "3":
-        listar_tarefas()
-        i = int(input("Digite o numero da tarefa:"))
-        concluir_tarefa(i)
+   
+    else:
+        print("Opção inválida!")
